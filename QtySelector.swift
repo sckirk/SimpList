@@ -82,7 +82,7 @@ import UIKit
         let emptyBasil = UIImage(named:"emptyBasil", in: bundle, compatibleWith: self.traitCollection)
         let highlightedKale = UIImage(named:"highlightedKale", in: bundle, compatibleWith: self.traitCollection)
         
-        for _ in 0..<qtyCount {
+        for index in 0..<qtyCount {
             // Create the button
             let button = UIButton()
             
@@ -97,9 +97,9 @@ import UIKit
             button.heightAnchor.constraint(equalToConstant: qtySize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: qtySize.width).isActive = true
             
-//            // Set the accessibility label
-//            button.accessibilityLabel = "Set \(index + 1) star rating"
-//            
+            // Set the accessibility label
+            button.accessibilityLabel = "Set \(index + 1) quantity count"
+            
             // Setup the button action
             button.addTarget(self, action: #selector(QtySelector.quantityButtonTapped(button:)), for: .touchUpInside)
             
@@ -120,28 +120,28 @@ import UIKit
             // If the index of a button is less than the quantity selected, that button will be selected.
             button.isSelected = index < quantity
             
-//            // Set the hint string for the currently selected star
-//            let hintString: String?
-//            if rating == index + 1 {
-//                hintString = "Tap to reset the rating to zero."
-//            } else {
-//                hintString = nil
-//            }
-//            
-//            // Calculate the value string
-//            let valueString: String
-//            switch (rating) {
-//            case 0:
-//                valueString = "No rating set."
-//            case 1:
-//                valueString = "1 star set."
-//            default:
-//                valueString = "\(rating) stars set."
-//            }
-//            
-//            // Assign the hint string and value string
-//            button.accessibilityHint = hintString
-//            button.accessibilityValue = valueString
+            // Set the hint string for the currently selected image
+            let hintString: String?
+            if quantity == index + 1 {
+                hintString = "Tap to reset the quantity to zero."
+            } else {
+                hintString = nil
+            }
+            
+            // Calculate the value string
+            let valueString: String
+            switch (quantity) {
+            case 0:
+                valueString = "No quantity set."
+            case 1:
+                valueString = "1 quantity set."
+            default:
+                valueString = "\(quantity) quantities set."
+            }
+            
+            // Assign the hint string and value string
+            button.accessibilityHint = hintString
+            button.accessibilityValue = valueString
         }
     }
 
