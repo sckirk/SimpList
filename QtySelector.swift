@@ -13,7 +13,7 @@ import UIKit
     //MARK: Properties
     private var quantityButtons = [UIButton]()
     
-    var quantity = 1  // {
+    var quantity = 0  // {
 //        didSet {
 //            updateButtonSelectionStates()
 //        }
@@ -77,22 +77,21 @@ import UIKit
         }
         quantityButtons.removeAll()
 
-//        // Load Button Images
-//        let bundle = Bundle(for: type(of: self))
-//        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
-//        let emptyStar = UIImage(named:"emptyStar", in: bundle, compatibleWith: self.traitCollection)
-//        let highlightedStar = UIImage(named:"highlightedStar", in: bundle, compatibleWith: self.traitCollection)
+        // Load Button Images
+        let bundle = Bundle(for: type(of: self))
+        let filledKale = UIImage(named: "filledKale", in: bundle, compatibleWith: self.traitCollection)
+        let emptyBasil = UIImage(named:"emptyBasil", in: bundle, compatibleWith: self.traitCollection)
+        let highlightedKale = UIImage(named:"highlightedKale", in: bundle, compatibleWith: self.traitCollection)
         
         for _ in 0..<qtyCount {
             // Create the button
             let button = UIButton()
-            button.backgroundColor = UIColor.green
             
-//            // Set the button images
-//            button.setImage(emptyStar, for: .normal)
-//            button.setImage(filledStar, for: .selected)
-//            button.setImage(highlightedStar, for: .highlighted)
-//            button.setImage(highlightedStar, for: [.highlighted, .selected])
+            // Set the button images
+            button.setImage(emptyBasil, for: .normal)
+            button.setImage(filledKale, for: .selected)
+            button.setImage(highlightedKale, for: .highlighted)
+            button.setImage(highlightedKale, for: [.highlighted, .selected])
         
             // Add constraints
             button.translatesAutoresizingMaskIntoConstraints = false
