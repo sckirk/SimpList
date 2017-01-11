@@ -45,7 +45,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKz-bU-0SG" customClass="QtySelector" customModule="SimpList" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aKz-bU-0SG" customClass="QtySelector" customModule="SimpList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="215" width="320" height="110"/>
                                     </stackView>
                                 </subviews>
