@@ -25,15 +25,20 @@ class Item {
             return nil
         }
         
-//        // The name must not be empty
-//        guard !name.isEmpty else {
-//            return nil
-//        }
+        // The name must not be empty
+        guard !name.isEmpty else {
+            return nil
+        }
         
-//        // The rating must be between 0 and 5 inclusively
-//        guard (rating >= 0) && (rating <= 5) else {
-//            return nil
-//        }
+        // The quantity must be between 1 and 6 inclusively
+        guard (quantity > 0) && (quantity < 7) else {
+            return nil
+        }
+        
+        // The location must not be empty
+        guard !location.isEmpty else {
+            return nil
+        }
         
         // Initialize stored properties.
         self.name = name
