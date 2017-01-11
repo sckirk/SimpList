@@ -15,6 +15,7 @@
 		0622E27C1E243EDA003FAC46 /* SimpListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622E27B1E243EDA003FAC46 /* SimpListTests.swift */; };
 		0622E2871E243EDA003FAC46 /* SimpListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622E2861E243EDA003FAC46 /* SimpListUITests.swift */; };
 		0652BF551E26B3C4004F1657 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652BF541E26B3C4004F1657 /* Item.swift */; };
+		0652BF571E26ED5C004F1657 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652BF561E26ED5C004F1657 /* ItemTableViewCell.swift */; };
 		06C7F1F41E25EFB3007B77E4 /* QtySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		0622E2861E243EDA003FAC46 /* SimpListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpListUITests.swift; sourceTree = "<group>"; };
 		0622E2881E243EDA003FAC46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0652BF541E26B3C4004F1657 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0652BF561E26ED5C004F1657 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemTableViewCell.swift; path = ../ItemTableViewCell.swift; sourceTree = "<group>"; };
 		06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QtySelector.swift; path = ../QtySelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				0622E2681E243EDA003FAC46 /* ViewController.swift */,
 				06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */,
 				0652BF541E26B3C4004F1657 /* Item.swift */,
+				0652BF561E26ED5C004F1657 /* ItemTableViewCell.swift */,
 				0622E26A1E243EDA003FAC46 /* Main.storyboard */,
 				0622E26D1E243EDA003FAC46 /* Assets.xcassets */,
 				0622E26F1E243EDA003FAC46 /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 			files = (
 				0652BF551E26B3C4004F1657 /* Item.swift in Sources */,
 				0622E2691E243EDA003FAC46 /* ViewController.swift in Sources */,
+				0652BF571E26ED5C004F1657 /* ItemTableViewCell.swift in Sources */,
 				0622E2671E243EDA003FAC46 /* AppDelegate.swift in Sources */,
 				06C7F1F41E25EFB3007B77E4 /* QtySelector.swift in Sources */,
 			);
