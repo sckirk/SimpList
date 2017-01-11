@@ -14,7 +14,7 @@
 		0622E2711E243EDA003FAC46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0622E26F1E243EDA003FAC46 /* LaunchScreen.storyboard */; };
 		0622E27C1E243EDA003FAC46 /* SimpListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622E27B1E243EDA003FAC46 /* SimpListTests.swift */; };
 		0622E2871E243EDA003FAC46 /* SimpListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622E2861E243EDA003FAC46 /* SimpListUITests.swift */; };
-		06C7F1F41E25EFB3007B77E4 /* QtySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7F1F31E25EFB3007B77E4 /* QtySelection.swift */; };
+		06C7F1F41E25EFB3007B77E4 /* QtySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		0622E2821E243EDA003FAC46 /* SimpListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0622E2861E243EDA003FAC46 /* SimpListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpListUITests.swift; sourceTree = "<group>"; };
 		0622E2881E243EDA003FAC46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		06C7F1F31E25EFB3007B77E4 /* QtySelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QtySelection.swift; path = ../QtySelection.swift; sourceTree = "<group>"; };
+		06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QtySelector.swift; path = ../QtySelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 			children = (
 				0622E2661E243EDA003FAC46 /* AppDelegate.swift */,
 				0622E2681E243EDA003FAC46 /* ViewController.swift */,
-				06C7F1F31E25EFB3007B77E4 /* QtySelection.swift */,
+				06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */,
 				0622E26A1E243EDA003FAC46 /* Main.storyboard */,
 				0622E26D1E243EDA003FAC46 /* Assets.xcassets */,
 				0622E26F1E243EDA003FAC46 /* LaunchScreen.storyboard */,
@@ -267,7 +267,7 @@
 			files = (
 				0622E2691E243EDA003FAC46 /* ViewController.swift in Sources */,
 				0622E2671E243EDA003FAC46 /* AppDelegate.swift in Sources */,
-				06C7F1F41E25EFB3007B77E4 /* QtySelection.swift in Sources */,
+				06C7F1F41E25EFB3007B77E4 /* QtySelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

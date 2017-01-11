@@ -1,5 +1,5 @@
 //
-//  QtySelection.swift
+//  QtySelector.swift
 //  SimpList
 //
 //  Created by Suzannah Kirk-Daligcon on 1/10/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QtySelection: UIStackView {
+class QtySelector: UIStackView {
     
     //MARK: Initialization
     override init(frame: CGRect) {
