@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QtySelector: UIStackView {
+@IBDesignable class QtySelector: UIStackView {
     
     //MARK: Properties
     private var quantityButtons = [UIButton]()
@@ -19,17 +19,17 @@ class QtySelector: UIStackView {
 //        }
 //    }
     
-//    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
-//        didSet {
-//            setupButtons()
-//        }
-//    }
-//    
-//    @IBInspectable var starCount: Int = 5 {
-//        didSet {
-//            setupButtons()
-//        }
-//    }
+    @IBInspectable var qtySize: CGSize = CGSize(width: 46.6, height: 46.6) {
+        didSet {
+            setupButtons()
+        }
+    }
+
+    @IBInspectable var qtyCount: Int = 6 {
+        didSet {
+            setupButtons()
+        }
+    }
 
     
     
@@ -69,20 +69,21 @@ class QtySelector: UIStackView {
     
     //MARK: Private Methods
     private func setupButtons() {
-//        // Clear any existing buttons
-//        for button in ratingButtons {
-//            removeArrangedSubview(button)
-//            button.removeFromSuperview()
-//        }
-//        ratingButtons.removeAll()
-//        
+        
+        // clear any existing buttons
+        for button in quantityButtons {
+            removeArrangedSubview(button)
+            button.removeFromSuperview()
+        }
+        quantityButtons.removeAll()
+
 //        // Load Button Images
 //        let bundle = Bundle(for: type(of: self))
 //        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
 //        let emptyStar = UIImage(named:"emptyStar", in: bundle, compatibleWith: self.traitCollection)
 //        let highlightedStar = UIImage(named:"highlightedStar", in: bundle, compatibleWith: self.traitCollection)
         
-        for _ in 0..<6 {
+        for _ in 0..<qtyCount {
             // Create the button
             let button = UIButton()
             button.backgroundColor = UIColor.green
@@ -95,8 +96,8 @@ class QtySelector: UIStackView {
         
             // Add constraints
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.heightAnchor.constraint(equalToConstant: 46.6).isActive = true
-            button.widthAnchor.constraint(equalToConstant: 46.6).isActive = true
+            button.heightAnchor.constraint(equalToConstant: qtySize.height).isActive = true
+            button.widthAnchor.constraint(equalToConstant: qtySize.width).isActive = true
             
 //            // Set the accessibility label
 //            button.accessibilityLabel = "Set \(index + 1) star rating"
