@@ -12,8 +12,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var itemNameLabel: UILabel!
-    
+    @IBOutlet var itemNameLabel: UILabel!    
+    @IBOutlet var qtySelector: QtySelector!
     
 
     override func viewDidLoad() {

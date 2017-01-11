@@ -75,6 +75,7 @@
                     <connections>
                         <outlet property="itemNameLabel" destination="gIi-j7-YaJ" id="N3O-2h-5EO"/>
                         <outlet property="nameTextField" destination="r49-AE-EZ0" id="uqY-3j-5RY"/>
+                        <outlet property="qtySelector" destination="aKz-bU-0SG" id="ZAa-qI-Fym"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
