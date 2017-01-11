@@ -79,7 +79,7 @@ import UIKit
         // Load Button Images
         let bundle = Bundle(for: type(of: self))
         let filledKale = UIImage(named: "filledKale", in: bundle, compatibleWith: self.traitCollection)
-        let emptyBasil = UIImage(named:"emptyBasil", in: bundle, compatibleWith: self.traitCollection)
+        let emptyKale = UIImage(named:"emptyKale", in: bundle, compatibleWith: self.traitCollection)
         let highlightedKale = UIImage(named:"highlightedKale", in: bundle, compatibleWith: self.traitCollection)
         
         for index in 0..<qtyCount {
@@ -87,7 +87,7 @@ import UIKit
             let button = UIButton()
             
             // Set the button images
-            button.setImage(emptyBasil, for: .normal)
+            button.setImage(emptyKale, for: .normal)
             button.setImage(filledKale, for: .selected)
             button.setImage(highlightedKale, for: .highlighted)
             button.setImage(highlightedKale, for: [.highlighted, .selected])
