@@ -13,12 +13,12 @@ import UIKit
     //MARK: Properties
     private var quantityButtons = [UIButton]()
     
-    var quantity = 0  // {
-//        didSet {
-//            updateButtonSelectionStates()
-//        }
-//    }
-    
+    var quantity = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
+
     @IBInspectable var qtySize: CGSize = CGSize(width: 46.6, height: 46.6) {
         didSet {
             setupButtons()
@@ -48,21 +48,20 @@ import UIKit
     
     //MARK: Button Action
     func quantityButtonTapped(button: UIButton) {
-        print("button pressed!!!")
-//        guard let index = ratingButtons.index(of: button) else {
-//            fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
-//        }
-//        
-//        // Calculate the rating of the selected button
-//        let selectedRating = index + 1
-//        
-//        if selectedRating == rating {
-//            // If the selected star represents the current rating, reset the rating to 0.
-//            rating = 0
-//        } else {
-//            // Otherwise set the rating to the selected star
-//            rating = selectedRating
-//        }
+        guard let index = quantityButtons.index(of: button) else {
+            fatalError("The button, \(button), is not in the quantityButtons array: \(quantityButtons)")
+        }
+        
+        // Calculate the quantity of the selected button
+        let selectedQuantity = index + 1
+       
+        if selectedQuantity == quantity {
+            // If the selected image represents the current quantity, reset the quantity to 0.
+            quantity = 0
+        } else {
+            // Otherwise set the quantity to the selected image
+            quantity = selectedQuantity
+        }
     }
 
     
@@ -111,10 +110,41 @@ import UIKit
             quantityButtons.append(button)
         }
         
-//        updateButtonSelectionStates()
+        updateButtonSelectionStates()
         
         // print(ratingButtons)    // trying to debug if/why I only have 1 button instead of 5. And now it WORKS?! Why? Maybe I hadn't hit save or something like that prior to my earlier build... Xcode.
     }
+    
+    private func updateButtonSelectionStates() {
+        for (index, button) in quantityButtons.enumerated() {
+            // If the index of a button is less than the quantity selected, that button will be selected.
+            button.isSelected = index < quantity
+            
+//            // Set the hint string for the currently selected star
+//            let hintString: String?
+//            if rating == index + 1 {
+//                hintString = "Tap to reset the rating to zero."
+//            } else {
+//                hintString = nil
+//            }
+//            
+//            // Calculate the value string
+//            let valueString: String
+//            switch (rating) {
+//            case 0:
+//                valueString = "No rating set."
+//            case 1:
+//                valueString = "1 star set."
+//            default:
+//                valueString = "\(rating) stars set."
+//            }
+//            
+//            // Assign the hint string and value string
+//            button.accessibilityHint = hintString
+//            button.accessibilityValue = valueString
+        }
+    }
+
 
    
 }
