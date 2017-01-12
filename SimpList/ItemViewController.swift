@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ItemViewController.swift
 //  SimpList
 //
 //  Created by Suzannah Kirk-Daligcon on 1/9/17.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ItemViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var itemNameLabel: UILabel!    
     @IBOutlet var qtySelector: QtySelector!
     
 
@@ -31,7 +30,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        itemNameLabel.text = textField.text
     }
     
     
