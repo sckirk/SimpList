@@ -27,27 +27,66 @@ class ItemTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1 // I'll be updating this when I implement more than one table section <<<<<<<<<<<
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count // I'll be updating this, too <<<<<<<<<<
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let qty1 = UIImage(named: "qty1")
+        let qty2 = UIImage(named: "qty2")
+        let qty3 = UIImage(named: "qty3")
+        let qty4 = UIImage(named: "qty4")
+        let qty5 = UIImage(named: "qty5")
+        let qty6 = UIImage(named: "qty6")
+        
+        
+        // Table view cells are reused and will be dequeued using a cell identifier.
+        let cellIdentifier = "ItemTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ItemTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
+        }
+        
+        // Fetches the appropriate item for the data source layout.
+        let item = items[indexPath.row]
+        
+        cell.itemNameLabel.text = item.name
+        
+        switch (item.quantity)
+        {
+        case 1:
+            cell.qtyImageView.image = qty1
+            
+        case 2:
+            cell.qtyImageView.image = qty2
+            
+        case 3:
+            cell.qtyImageView.image = qty3
+            
+        case 4:
+            cell.qtyImageView.image = qty4
+        
+        case 5:
+            cell.qtyImageView.image = qty5
+            
+        case 6:
+            cell.qtyImageView.image = qty6
+            
+        default:
+            print("This default case is actually impossible based on the code in Item.swift")
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,34 +136,26 @@ class ItemTableViewController: UITableViewController {
     
     //MARK: Private Methods
     private func loadInitialItems() {
-        let qty1 = UIImage(named: "qty1")
-        let qty2 = UIImage(named: "qty2")
-        let qty3 = UIImage(named: "qty3")
-        let qty4 = UIImage(named: "qty4")
-        let qty5 = UIImage(named: "qty5")
-        let qty6 = UIImage(named: "qty6")
-        
-        guard let item1 = Item(name: "sweet italian creamer", quantity: 1, location: "1", photo: qty1) else {
+        guard let item1 = Item(name: "sweet italian creamer", quantity: 1, location: "1") else {
             fatalError("Unable to instantiate item1")
         }
-        guard let item2 = Item(name: "juice", quantity: 2, location: "1", photo: qty2) else {
+        guard let item2 = Item(name: "juice", quantity: 2, location: "1") else {
             fatalError("Unable to instantiate item2")
         }
-        guard let item3 = Item(name: "sour cream", quantity: 3, location: "1", photo: qty3) else {
+        guard let item3 = Item(name: "sour cream", quantity: 3, location: "1") else {
             fatalError("Unable to instantiate item3")
         }
-        guard let item4 = Item(name: "top ramen", quantity: 4, location: "1", photo: qty4) else {
+        guard let item4 = Item(name: "top ramen", quantity: 4, location: "1") else {
             fatalError("Unable to instantiate item4")
         }
-        guard let item5 = Item(name: "yogurt", quantity: 5, location: "1", photo: qty5) else {
+        guard let item5 = Item(name: "yogurt", quantity: 5, location: "1") else {
             fatalError("Unable to instantiate item5")
         }
-        guard let item6 = Item(name: "hormel snacks", quantity: 6, location: "1", photo: qty6) else {
+        guard let item6 = Item(name: "hormel snacks", quantity: 6, location: "1") else {
             fatalError("Unable to instantiate item6")
         }
         
         items += [item1, item2, item3, item4, item5, item6]
-        
     }
 
 

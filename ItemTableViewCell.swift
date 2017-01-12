@@ -15,7 +15,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet var qtyImageView: UIImageView!
     
     
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()

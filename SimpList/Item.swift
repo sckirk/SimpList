@@ -14,12 +14,11 @@ class Item {
     var name: String
     var quantity: Int
     var location: String
-    var photo: UIImage?
     
     
     
-    //Initialization
-    init?(name: String, quantity: Int, location: String, photo: UIImage?) {
+    //MARK: Initialization
+    init?(name: String, quantity: Int, location: String) {
         
         // Initialization should fail if there is no name or location, or if the quantity is less than 1.
         if name.isEmpty || quantity < 1 || location.isEmpty  {

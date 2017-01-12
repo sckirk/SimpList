@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Item Table View Controller-->
         <scene sceneID="gGP-Vb-Qgg">
             <objects>
-                <tableViewController id="inU-GT-d7T" sceneMemberID="viewController">
+                <tableViewController id="inU-GT-d7T" customClass="ItemTableViewController" customModule="SimpList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="efK-sh-tMz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="itemNameLabel" destination="XxO-gh-GMa" id="Nbp-49-lXm"/>
-                                    <outlet property="qtyImageView" destination="3ZK-Wl-d1B" id="gVh-Qu-TQ2"/>
+                                    <outlet property="qtyImageView" destination="3ZK-Wl-d1B" id="TM0-20-5Id"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
