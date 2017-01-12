@@ -9,6 +9,13 @@
 import UIKit
 
 class ItemTableViewCell: UITableViewCell {
+    
+    //MARK: Properties
+    @IBOutlet var itemNameLabel: UILabel!
+    @IBOutlet var qtyImageView: UIImageView!
+    
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
