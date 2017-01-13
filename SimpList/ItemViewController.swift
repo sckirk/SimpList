@@ -37,6 +37,14 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
+        // Set up views if editing an existing Item.
+        if let item = item {
+            navigationItem.title = item.name
+            nameTextField.text = item.name
+            qtySelector.quantity = item.quantity
+            pickerTextField.text = item.location
+        }
+        
         // Enable the Save button only if the text field has a valid Item name and item location has been selected.
         updateSaveButtonState()
     }
