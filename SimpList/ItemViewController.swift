@@ -8,18 +8,26 @@
 
 import UIKit
 
-class ItemViewController: UIViewController, UITextFieldDelegate {
+class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     //MARK: Properties
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var qtySelector: QtySelector!
+    @IBOutlet var pickerTextField: UITextField!
     
+    let pickOption = ["health/bath", "toys/garden/home", "kitchen/crafts", "right grocery", "back right refrigerated", "left grocery", "back left refrigerated", "clothes/shoes", "natural section", "organic produce", "frozen"]
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
         
+        let pickerView = UIPickerView()
+        
+        pickerView.delegate = self
+        
+        pickerTextField.inputView = pickerView
+
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
     }
@@ -27,6 +35,22 @@ class ItemViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickOption.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickOption[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerTextField.text = pickOption[row]
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
