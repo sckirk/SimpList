@@ -121,6 +121,8 @@ class ItemTableViewController: UITableViewController {
     }
     */
 
+    
+    
     /*
     // MARK: - Navigation
 
@@ -130,6 +132,21 @@ class ItemTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    //MARK: Actions
+    @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
+            
+            // Add a new item.
+            let newIndexPath = IndexPath(row: items.count, section: 0) // will need to update this section once implementing different locations.
+            
+            items.append(item)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     
     
     //MARK: Private Methods

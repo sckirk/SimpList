@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -70,6 +71,28 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         textField.resignFirstResponder()
         return true
     }
+    
+    
+    
+    //MARK: Navigation
+    // This method lets you configure a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let quantity = qtySelector.quantity
+        let location = pickerTextField.text ?? ""
+        
+        // Set the item to be passed to ItemTableViewController after the unwind segue.
+        item = Item(name: name, quantity: quantity, location: location)
+    }
+
     
     
     //MARK: Actions

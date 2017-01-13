@@ -140,7 +140,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="new item" id="duD-Bd-9TQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gmX-je-ctq"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wXW-Aw-yh1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wXW-Aw-yh1">
+                            <connections>
+                                <segue destination="9Fv-Rx-ogL" kind="unwind" unwindAction="unwindToItemListWithSender:" id="RYf-hX-fk3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="r49-AE-EZ0" id="uqY-3j-5RY"/>
@@ -150,6 +154,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="9Fv-Rx-ogL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2019.375" y="33.802816901408448"/>
         </scene>
