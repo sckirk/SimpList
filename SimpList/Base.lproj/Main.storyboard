@@ -139,7 +139,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="new item" id="duD-Bd-9TQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gmX-je-ctq"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gmX-je-ctq">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="WeC-ni-mj3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wXW-Aw-yh1">
                             <connections>
                                 <segue destination="9Fv-Rx-ogL" kind="unwind" unwindAction="unwindToItemListWithSender:" id="RYf-hX-fk3"/>
