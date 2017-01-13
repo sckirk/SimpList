@@ -146,6 +146,7 @@
                         <outlet property="nameTextField" destination="r49-AE-EZ0" id="uqY-3j-5RY"/>
                         <outlet property="pickerTextField" destination="4Za-bE-8CJ" id="lpm-se-BR5"/>
                         <outlet property="qtySelector" destination="aKz-bU-0SG" id="ZAa-qI-Fym"/>
+                        <outlet property="saveButton" destination="wXW-Aw-yh1" id="opz-PK-pRN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -14,7 +14,12 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var qtySelector: QtySelector!
     @IBOutlet var pickerTextField: UITextField!
+    @IBOutlet var saveButton: UIBarButtonItem!
     
+    // This value is either passed by `ItemTableViewController` in `prepare(for:sender:)` or constructed as part of adding a new item.
+    var item: Item?
+    
+    // location options array--immutable
     let pickOption = ["health/bath", "toys/garden/home", "kitchen/crafts", "right grocery", "back right refrigerated", "left grocery", "back left refrigerated", "clothes/shoes", "natural section", "organic produce", "frozen"]
 
     
