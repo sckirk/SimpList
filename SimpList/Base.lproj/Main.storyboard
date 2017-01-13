@@ -84,16 +84,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8g9-iP-Etd">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8g9-iP-Etd">
                                 <rect key="frame" x="0.0" y="64" width="320" height="239"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppTitleBar" translatesAutoresizingMaskIntoConstraints="NO" id="Y9G-Aa-Yeo">
                                         <rect key="frame" x="0.0" y="0.0" width="319.5" height="106"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="106" id="j3Q-Up-Oas"/>
+                                        </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="sweet &amp; simple item name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="r49-AE-EZ0">
                                         <rect key="frame" x="0.0" y="114" width="319.5" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="id1-3n-uh8"/>
+                                            <constraint firstAttribute="height" constant="31" id="ef2-O6-aQ8"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="16"/>
@@ -111,7 +114,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(note: green kale indicates integer options)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-N6-vLJ">
                                         <rect key="frame" x="0.0" y="239" width="319.5" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" id="xfA-IN-Hth"/>
+                                            <constraint firstAttribute="height" id="0Ly-Sg-ozy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -122,8 +125,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8g9-iP-Etd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2BF-Uk-mSi"/>
-                            <constraint firstItem="8g9-iP-Etd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qCK-WO-GwC"/>
+                            <constraint firstItem="8g9-iP-Etd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5Ih-81-45l"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8g9-iP-Etd" secondAttribute="bottom" constant="265" id="C1P-ah-rPc"/>
+                            <constraint firstItem="8g9-iP-Etd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bIB-6Y-W7u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="new item" id="duD-Bd-9TQ">
