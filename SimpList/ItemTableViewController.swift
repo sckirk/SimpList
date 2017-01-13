@@ -40,14 +40,6 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let qty1 = UIImage(named: "qty1")
-        let qty2 = UIImage(named: "qty2")
-        let qty3 = UIImage(named: "qty3")
-        let qty4 = UIImage(named: "qty4")
-        let qty5 = UIImage(named: "qty5")
-        let qty6 = UIImage(named: "qty6")
-        
-        
         // Table view cells are reused and will be dequeued using a cell identifier.
         let cellIdentifier = "ItemTableViewCell"
         
@@ -55,9 +47,15 @@ class ItemTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
-        // Fetches the appropriate item for the data source layout.
-        let item = items[indexPath.row]
+        // Fetches the appropriate item and quantityImage for the data source layout.
+        let qty1 = UIImage(named: "qty1")
+        let qty2 = UIImage(named: "qty2")
+        let qty3 = UIImage(named: "qty3")
+        let qty4 = UIImage(named: "qty4")
+        let qty5 = UIImage(named: "qty5")
+        let qty6 = UIImage(named: "qty6")
         
+        let item = items[indexPath.row]
         cell.itemNameLabel.text = item.name
         
         switch (item.quantity)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Item { // comment just for source control test
+class Item { 
     
     //MARK: Properties
     var name: String
