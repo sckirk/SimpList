@@ -36,6 +36,9 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
 
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Item name and item location has been selected.
+        updateSaveButtonState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,17 +62,23 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         pickerTextField.text = pickOption[row]
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-    }
-    
     
     
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     
@@ -96,6 +105,22 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     
     
     //MARK: Actions
+    
+    
+    
+    //MARK: Private Methods
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+        
+        // Disable the Save button if a location has not been selected.
+        let text2 = pickerTextField.text ?? ""
+        saveButton.isEnabled = !text2.isEmpty
+        
+        let qtyChoice = qtySelector.quantity 
+        saveButton.isEnabled = qtyChoice > 0 && qtyChoice < 7
+    }
 
 
 }
