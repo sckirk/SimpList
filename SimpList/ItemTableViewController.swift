@@ -140,10 +140,18 @@ class ItemTableViewController: UITableViewController {
             }
             else {
                 // Add a new item.
-//                let newIndexPath = IndexPath(row: items.count, section: 0) // will need to update this section once implementing different locations.
-//                
-//                items.append(item)
-//                tableView.insertRows(at: [newIndexPath], with: .automatic)
+                
+                // creating a loop that iterates over sections and saves the section whose heading == item.location as a constant I'm using below...
+                for sect in sections {
+                    if sect.heading == item.location {
+                        let thisSection = sect
+                        
+                        let newIndexPath = IndexPath(row: thisSection.items.count, section: sections.index{$0.heading == item.location}!)
+                        
+                        sections[sections.index{$0.heading == item.location}!].items.append(item)
+                        tableView.insertRows(at: [newIndexPath], with: .automatic)
+                    }
+                }
             }
         }
     }
@@ -158,6 +166,37 @@ class ItemTableViewController: UITableViewController {
 
  
  /*
+ 
+ // Initialize the Array
+ let arr = ["one", "two", "three", "four"]
+ 
+ // Find first occurence of "two" (if any)
+ var location = arr.indexOf("two")
+ 
+ print(location!)
+ 
+ 
+ //MARK: Actions
+ @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
+ if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
+ if let selectedIndexPath = tableView.indexPathForSelectedRow {
+ // Update an existing item.
+ items[selectedIndexPath.row] = item
+ tableView.reloadRows(at: [selectedIndexPath], with: .none)
+ }
+ else {
+ // Add a new item.
+ let newIndexPath = IndexPath(row: items.count, section: 0) // will need to update this section once implementing different locations.
+ 
+ items.append(item)
+ tableView.insertRows(at: [newIndexPath], with: .automatic)
+ }
+ }
+ }
+ 
+ 
+ 
+ 
  
  // I DON'T THINK I NEED THESE...
  override func didReceiveMemoryWarning() {
