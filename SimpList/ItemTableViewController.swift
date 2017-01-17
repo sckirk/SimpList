@@ -12,6 +12,74 @@ import os.log
 
 class ItemTableViewController: UITableViewController {
     
+    var sections: [Section] = SectionsData().getSectionsFromData()
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].heading
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Table view cells are reused and will be dequeued using a cell identifier.
+        let cellIdentifier = "ItemTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ItemTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
+        }
+        
+        // Fetches the appropriate item and quantityImage for the data source layout.
+        let qty1 = UIImage(named: "qty1")
+        let qty2 = UIImage(named: "qty2")
+        let qty3 = UIImage(named: "qty3")
+        let qty4 = UIImage(named: "qty4")
+        let qty5 = UIImage(named: "qty5")
+        let qty6 = UIImage(named: "qty6")
+        
+        let item = sections[indexPath.section].items[indexPath.row]
+        cell.itemNameLabel.text = item.name
+        
+        switch (item.quantity)
+        {
+        case 1:
+            cell.qtyImageView.image = qty1
+            
+        case 2:
+            cell.qtyImageView.image = qty2
+            
+        case 3:
+            cell.qtyImageView.image = qty3
+            
+        case 4:
+            cell.qtyImageView.image = qty4
+            
+        case 5:
+            cell.qtyImageView.image = qty5
+            
+        case 6:
+            cell.qtyImageView.image = qty6
+            
+        default:
+            print("This default case is actually impossible based on the code in Item.swift")
+        }
+        
+        return cell
+    }
+    
+}
+
+
+
+    
+/*
+    
     //MARK: Properties
     var items = [Item]()
     
@@ -207,5 +275,5 @@ class ItemTableViewController: UITableViewController {
         items += [item1, item2, item3, item4, item5, item6]
     }
 
+*/
 
-}
