@@ -80,7 +80,6 @@ class ItemTableViewController: UITableViewController {
         return cell
     }
     
-    // I THINK I WANT/NEED THIS...
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -128,6 +127,27 @@ class ItemTableViewController: UITableViewController {
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
     }
+    
+    
+    
+    //MARK: Actions
+    @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing item.
+                sections[selectedIndexPath.section].items[selectedIndexPath.row] = item
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            else {
+                // Add a new item.
+//                let newIndexPath = IndexPath(row: items.count, section: 0) // will need to update this section once implementing different locations.
+//                
+//                items.append(item)
+//                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+
 
     
 }
@@ -160,40 +180,7 @@ class ItemTableViewController: UITableViewController {
  }
  */
  
- 
- 
- 
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- super.prepare(for: segue, sender: sender)
- 
- switch(segue.identifier ?? "") {
- 
- case "AddItem":
- os_log("Adding a new item.", log: OSLog.default, type: .debug)
- 
- case "ShowDetail":
- guard let itemDetailViewController = segue.destination as? ItemViewController else {
- fatalError("Unexpected destination: \(segue.destination)")
- }
- guard let selectedItemCell = sender as? ItemTableViewCell else {
- fatalError("Unexpected sender: \(sender)")
- }
- guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
- fatalError("The selected cell is not being displayed by the table")
- }
- let selectedItem = items[indexPath.row]
- itemDetailViewController.item = selectedItem
- 
- default:
- fatalError("Unexpected Segue Identifier; \(segue.identifier)")
- }
- }
- 
- 
- 
+
  
  //MARK: Actions
  @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
@@ -213,31 +200,6 @@ class ItemTableViewController: UITableViewController {
  }
  }
  
- 
- 
- //MARK: Private Methods
- private func loadInitialItems() {
- guard let item1 = Item(name: "sweet italian creamer", quantity: 1, location: "1") else {
- fatalError("Unable to instantiate item1")
- }
- guard let item2 = Item(name: "juice", quantity: 2, location: "1") else {
- fatalError("Unable to instantiate item2")
- }
- guard let item3 = Item(name: "sour cream", quantity: 3, location: "1") else {
- fatalError("Unable to instantiate item3")
- }
- guard let item4 = Item(name: "top ramen", quantity: 4, location: "1") else {
- fatalError("Unable to instantiate item4")
- }
- guard let item5 = Item(name: "yogurt", quantity: 5, location: "1") else {
- fatalError("Unable to instantiate item5")
- }
- guard let item6 = Item(name: "hormel snacks", quantity: 6, location: "1") else {
- fatalError("Unable to instantiate item6")
- }
- 
- items += [item1, item2, item3, item4, item5, item6]
- }
  
  */
 
