@@ -98,6 +98,38 @@ class ItemTableViewController: UITableViewController {
         }
     }
     
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddItem":
+            os_log("Adding a new item.", log: OSLog.default, type: .debug)
+            
+        case "ShowDetail":
+            guard let itemDetailViewController = segue.destination as? ItemViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedItemCell = sender as? ItemTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            let selectedItem = sections[indexPath.section].items[indexPath.row]
+            itemDetailViewController.item = selectedItem
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+    }
+
+    
 }
 
 
