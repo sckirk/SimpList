@@ -45,6 +45,8 @@ class SectionsData {
         let frozen = Section(title: "frozen", objects: [Item(name: "pizza", quantity: 1, location: "frozen")!, Item(name: "meat - stir fry", quantity: 1, location: "frozen")!])
         sectionsArray.append(frozen)
         
+        let checkout = Section(title: "time to checkout", objects: [Item(name: "say 'hi' to Elizabeth!", quantity: 1, location: "time to checkout")!])
+        sectionsArray.append(checkout)
     
         return sectionsArray
     
