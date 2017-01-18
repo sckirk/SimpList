@@ -127,21 +127,48 @@ class ItemTableViewController: UITableViewController {
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
     }
-    
+
     
     
     //MARK: Actions
+    // first if statement that worked--with the edit location bug...
+    //    @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
+    //        if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
+    //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+    //                // Update an existing item.
+    //            sections[selectedIndexPath.section].items[selectedIndexPath.row] = item
+    //            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+    //        }
     @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing item.
-                sections[selectedIndexPath.section].items[selectedIndexPath.row] = item
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                // Update an existing item...
+                    // if the item's location hasn't changed...
+                if sections[selectedIndexPath.section].heading == item.location {
+                    sections[selectedIndexPath.section].items[selectedIndexPath.row] = item
+                    tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                }
+                else { // if the item's location has changed...
+                    // first delete the item from its old location
+                    sections[selectedIndexPath.section].items.remove(at: selectedIndexPath.row)
+                    tableView.deleteRows(at: [selectedIndexPath], with: .fade)
+                    // then add the item into its new location
+                    for sect in sections {
+                        if sect.heading == item.location {
+                            let thisSection = sect
+                            
+                            let newIndexPath = IndexPath(row: thisSection.items.count, section: sections.index{$0.heading == item.location}!)
+                            
+                            sections[sections.index{$0.heading == item.location}!].items.append(item)
+                            tableView.insertRows(at: [newIndexPath], with: .automatic)
+                        }
+                    }
+                }
             }
             else {
-                // Add a new item.
+                // Add a new item...
                 
-                // creating a loop that iterates over sections and saves the section whose heading == item.location as a constant I'm using below...
+                // creating a loop that iterates over sections and saves the section whose heading == item.location as a constant I'm using below:
                 for sect in sections {
                     if sect.heading == item.location {
                         let thisSection = sect
@@ -155,26 +182,10 @@ class ItemTableViewController: UITableViewController {
             }
         }
     }
-
-
-    
 }
-
-
-
-
 
  
  /*
- 
- // Initialize the Array
- let arr = ["one", "two", "three", "four"]
- 
- // Find first occurence of "two" (if any)
- var location = arr.indexOf("two")
- 
- print(location!)
- 
  
  //MARK: Actions
  @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
@@ -218,26 +229,7 @@ class ItemTableViewController: UITableViewController {
  return true
  }
  */
- 
 
- 
- //MARK: Actions
- @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
- if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
- if let selectedIndexPath = tableView.indexPathForSelectedRow {
- // Update an existing item.
- items[selectedIndexPath.row] = item
- tableView.reloadRows(at: [selectedIndexPath], with: .none)
- }
- else {
- // Add a new item.
- let newIndexPath = IndexPath(row: items.count, section: 0) // will need to update this section once implementing different locations.
- 
- items.append(item)
- tableView.insertRows(at: [newIndexPath], with: .automatic)
- }
- }
- }
  
  
  */
