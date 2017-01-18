@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import os.log
 
-class Item { 
+class Item: NSObject, NSCoding {
     
     //MARK: Properties
     var name: String
     var quantity: Int
     var location: String
+    
+    
+    
+    //MARK: Archiving Paths
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("items")
+    
+    
+    
+    //MARK: Types
+    struct PropertyKey {
+        static let name = "name"
+        static let quantity = "quantity"
+        static let location = "location"
+    }
     
     
     
@@ -44,5 +60,33 @@ class Item {
         self.name = name
         self.quantity = quantity
         self.location = location
+    }
+    
+    
+    
+    //MARK: NSCoding
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(quantity, forKey: PropertyKey.quantity)
+        aCoder.encode(location, forKey: PropertyKey.location)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        // The name is required. If we cannot decode a name string, the initializer will fail.
+        guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String else {
+            os_log("Unable to decode the name for the Item object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        
+        let quantity = aDecoder.decodeInteger(forKey: PropertyKey.quantity)
+        
+        // The location is required. If we cannot decode a location string, the initializer will fail.
+        guard let location = aDecoder.decodeObject(forKey: PropertyKey.location) as? String else {
+            os_log("Unable to decode the location for the Item object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        
+        // Must call designated initializer.
+        self.init(name: name, quantity: quantity, location: location)
     }
 }
