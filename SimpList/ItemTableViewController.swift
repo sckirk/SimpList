@@ -19,6 +19,19 @@ class ItemTableViewController: UITableViewController {
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
+        
+    // This is where my current project structure really doesn't work with the Apple Tutorial... would probably need to change all of this data persistence stuff to get it to work with Swift custom structures!
+//        // Load any saved items, otherwise load sample data.
+//        if let savedItems = loadItems() {
+//            items += savedItems
+//            if items.count == 0 { // this means that all of the meals were deleted by user...
+//                // Reload the sample data.
+//                loadSampleItems() // this has to be changed to work with the sections--don't have a loadSampleItems function at all.
+//            }
+//        } else {
+//            // Load the sample data.
+//            loadSampleItems()
+//        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,6 +104,7 @@ class ItemTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             sections[indexPath.section].items.remove(at: indexPath.row)
+            saveItems()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -175,7 +189,26 @@ class ItemTableViewController: UITableViewController {
                 // Add a new item...
                 addNewItem()
             }
+            
+            // Save the items.
+            saveItems()
         }
+    }
+    
+    
+    
+    //MARK: Private Methods
+    private func saveItems() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(sections, toFile: Item.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Items successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save items...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadItems() -> [Item]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Item.ArchiveURL.path) as? [Item]
     }
 }
 
