@@ -182,29 +182,7 @@ class ItemTableViewController: UITableViewController {
  
  /*
  
- //MARK: Actions
- @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
- if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
- if let selectedIndexPath = tableView.indexPathForSelectedRow {
- // Update an existing item.
- items[selectedIndexPath.row] = item
- tableView.reloadRows(at: [selectedIndexPath], with: .none)
- }
- else {
- // Add a new item.
- let newIndexPath = IndexPath(row: items.count, section: 0) // will need to update this section once implementing different locations.
- 
- items.append(item)
- tableView.insertRows(at: [newIndexPath], with: .automatic)
- }
- }
- }
- 
- 
- 
- 
- 
- // I DON'T THINK I NEED THESE...
+ // I DON'T NEED THESE RIGHT NOW, keeping these duplicates separated in case I need to add them in for other functionality...
  override func didReceiveMemoryWarning() {
  super.didReceiveMemoryWarning()
  // Dispose of any resources that can be recreated.
@@ -225,8 +203,6 @@ class ItemTableViewController: UITableViewController {
  }
  */
 
- 
- 
  */
 
 
