@@ -141,6 +141,21 @@ class ItemTableViewController: UITableViewController {
     //        }
     @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
+            
+            func addNewItem() {
+                // creating a loop that iterates over sections and saves the section whose heading == item.location as a constant I'm using below:
+                for sect in sections {
+                    if sect.heading == item.location {
+                        let thisSection = sect
+                        
+                        let newIndexPath = IndexPath(row: thisSection.items.count, section: sections.index{$0.heading == item.location}!)
+                        
+                        sections[sections.index{$0.heading == item.location}!].items.append(item)
+                        tableView.insertRows(at: [newIndexPath], with: .automatic)
+                    }
+                }
+            }
+            
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing item...
                     // if the item's location hasn't changed...
@@ -153,32 +168,12 @@ class ItemTableViewController: UITableViewController {
                     sections[selectedIndexPath.section].items.remove(at: selectedIndexPath.row)
                     tableView.deleteRows(at: [selectedIndexPath], with: .fade)
                     // then add the item into its new location
-                    for sect in sections {
-                        if sect.heading == item.location {
-                            let thisSection = sect
-                            
-                            let newIndexPath = IndexPath(row: thisSection.items.count, section: sections.index{$0.heading == item.location}!)
-                            
-                            sections[sections.index{$0.heading == item.location}!].items.append(item)
-                            tableView.insertRows(at: [newIndexPath], with: .automatic)
-                        }
-                    }
+                    addNewItem()
                 }
             }
             else {
                 // Add a new item...
-                
-                // creating a loop that iterates over sections and saves the section whose heading == item.location as a constant I'm using below:
-                for sect in sections {
-                    if sect.heading == item.location {
-                        let thisSection = sect
-                        
-                        let newIndexPath = IndexPath(row: thisSection.items.count, section: sections.index{$0.heading == item.location}!)
-                        
-                        sections[sections.index{$0.heading == item.location}!].items.append(item)
-                        tableView.insertRows(at: [newIndexPath], with: .automatic)
-                    }
-                }
+                addNewItem()
             }
         }
     }
