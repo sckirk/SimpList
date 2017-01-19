@@ -93,43 +93,52 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="346"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppTitleBar" translatesAutoresizingMaskIntoConstraints="NO" id="Y9G-Aa-Yeo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="1ZB-To-TxO"/>
+                                            <constraint firstAttribute="height" constant="80" id="OVT-aF-aON"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="sweet &amp; simple item name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="r49-AE-EZ0">
-                                        <rect key="frame" x="0.0" y="114" width="320" height="31"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="u4o-it-Vjx"/>
+                                            <constraint firstAttribute="height" constant="24" id="o8g-a6-tKb"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity selector..." lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOg-c7-8xF">
-                                        <rect key="frame" x="0.0" y="153" width="320" height="24"/>
+                                        <rect key="frame" x="0.0" y="120" width="320" height="94"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-N6-vLJ">
-                                        <rect key="frame" x="0.0" y="185" width="320" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="BSb-1r-745"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="60"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-2f-2Nt">
-                                        <rect key="frame" x="0.0" y="253" width="94" height="29"/>
-                                        <connections>
-                                            <action selector="qtyStepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mCY-D3-bwA"/>
-                                        </connections>
-                                    </stepper>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-qW-DBw">
+                                        <rect key="frame" x="0.0" y="222" width="320" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-N6-vLJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="mXt-Ez-rlY"/>
+                                                    <constraint firstAttribute="width" constant="226" id="wOF-vO-ETe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="60"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-2f-2Nt">
+                                                <rect key="frame" x="226" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="qtyStepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mCY-D3-bwA"/>
+                                                </connections>
+                                            </stepper>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location selector..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vE-zJ-JtV">
                                         <rect key="frame" x="0.0" y="290" width="320" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="12Q-hf-7Bi"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -137,7 +146,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Za-bE-8CJ">
                                         <rect key="frame" x="0.0" y="322" width="320" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="w4v-ns-ZsP"/>
+                                            <constraint firstAttribute="height" constant="24" id="QOe-KP-1nt"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -148,8 +157,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8g9-iP-Etd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Zuj-14-jcE"/>
-                            <constraint firstItem="8g9-iP-Etd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qEF-v4-nVr"/>
+                            <constraint firstItem="8g9-iP-Etd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QUY-Ea-2Gg"/>
+                            <constraint firstItem="8g9-iP-Etd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XVG-10-ypM"/>
+                            <constraint firstAttribute="trailing" secondItem="8g9-iP-Etd" secondAttribute="trailing" id="oRX-bJ-UKI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8g9-iP-Etd" secondAttribute="bottom" constant="158" id="wcJ-hT-SVa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="new item" id="duD-Bd-9TQ">

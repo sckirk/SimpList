@@ -125,11 +125,11 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         }
         
         let name = nameTextField.text ?? ""
-        let quantity = Int(qtyLabel.text!)
+        let quantity = Int(qtyLabel.text!) ?? 1
         let location = pickerTextField.text ?? ""
         
         // Set the item to be passed to ItemTableViewController after the unwind segue.
-        item = Item(name: name, quantity: quantity!, location: location)
+        item = Item(name: name, quantity: quantity, location: location)
     }
 
     
