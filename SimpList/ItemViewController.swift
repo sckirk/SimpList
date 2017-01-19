@@ -13,7 +13,8 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     
     //MARK: Properties
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var qtySelector: QtySelector!
+    @IBOutlet var qtyLabel: UILabel!
+    @IBOutlet var qtyStepper: UIStepper!
     @IBOutlet var pickerTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     
@@ -28,6 +29,11 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        qtyStepper.wraps = true
+        qtyStepper.autorepeat = true
+        qtyStepper.minimumValue = 1
+        qtyStepper.maximumValue = 6
+        
         let pickerView = UIPickerView()
         
         pickerView.delegate = self
@@ -41,8 +47,9 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         if let item = item {
             navigationItem.title = item.name
             nameTextField.text = item.name
-            qtySelector.quantity = item.quantity
+            qtyLabel.text = Int(item.quantity).description
             pickerTextField.text = item.location
+            qtyStepper.value = Double(item.quantity)
         }
         
         // Enable the Save button only if the text field has a valid Item name and item location has been selected.
@@ -118,16 +125,19 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         }
         
         let name = nameTextField.text ?? ""
-        let quantity = qtySelector.quantity
+        let quantity = Int(qtyLabel.text!)
         let location = pickerTextField.text ?? ""
         
         // Set the item to be passed to ItemTableViewController after the unwind segue.
-        item = Item(name: name, quantity: quantity, location: location)
+        item = Item(name: name, quantity: quantity!, location: location)
     }
 
     
     
     //MARK: Actions
+    @IBAction func qtyStepperValueChanged(_ sender: UIStepper) {
+        qtyLabel.text = Int(sender.value).description
+    }
     
     
     
@@ -140,9 +150,6 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         // Disable the Save button if a location has not been selected.
         let text2 = pickerTextField.text ?? ""
         saveButton.isEnabled = !text2.isEmpty
-        
-        let qtyChoice = qtySelector.quantity 
-        saveButton.isEnabled = qtyChoice > 0 && qtyChoice < 7
     }
 
 

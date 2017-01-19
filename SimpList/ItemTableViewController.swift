@@ -74,7 +74,7 @@ class ItemTableViewController: UITableViewController {
             cell.qtyImageView.image = qty6
             
         default:
-            print("This default case is actually impossible based on the code in Item.swift")
+            print("This default case is actually impossible based on the code for the UI Stepper")
         }
         
         return cell
