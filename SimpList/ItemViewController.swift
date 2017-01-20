@@ -57,8 +57,6 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ItemViewController.donePressed))
         
-//        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 1.5, height: self.view.frame.size.height))
         
         label.font = UIFont(name: "American Typewriter", size: 17)
@@ -74,7 +72,6 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         let textBtn = UIBarButtonItem(customView: label)
         
         toolBar.setItems([textBtn,doneButton], animated: true)
-//        toolBar.setItems([flexSpace,textBtn,flexSpace,doneButton], animated: true)
         
         pickerTextField.inputAccessoryView = toolBar
 
