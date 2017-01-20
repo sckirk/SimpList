@@ -19,7 +19,6 @@
 		0652BF591E280976004F1657 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652BF581E280976004F1657 /* ItemTableViewController.swift */; };
 		0685F25E1E2D8C9300423693 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0685F25D1E2D8C9300423693 /* Section.swift */; };
 		0685F2601E2D8FCB00423693 /* SectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0685F25F1E2D8FCB00423693 /* SectionsData.swift */; };
-		06C7F1F41E25EFB3007B77E4 /* QtySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		0652BF581E280976004F1657 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		0685F25D1E2D8C9300423693 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		0685F25F1E2D8FCB00423693 /* SectionsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionsData.swift; path = ../SectionsData.swift; sourceTree = "<group>"; };
-		06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QtySelector.swift; path = ../QtySelector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +109,6 @@
 			children = (
 				0622E2661E243EDA003FAC46 /* AppDelegate.swift */,
 				0622E2681E243EDA003FAC46 /* ItemViewController.swift */,
-				06C7F1F31E25EFB3007B77E4 /* QtySelector.swift */,
 				0652BF541E26B3C4004F1657 /* Item.swift */,
 				0652BF561E26ED5C004F1657 /* ItemTableViewCell.swift */,
 				0652BF581E280976004F1657 /* ItemTableViewController.swift */,
@@ -286,7 +283,6 @@
 				0685F25E1E2D8C9300423693 /* Section.swift in Sources */,
 				0622E2671E243EDA003FAC46 /* AppDelegate.swift in Sources */,
 				0652BF591E280976004F1657 /* ItemTableViewController.swift in Sources */,
-				06C7F1F41E25EFB3007B77E4 /* QtySelector.swift in Sources */,
 				0685F2601E2D8FCB00423693 /* SectionsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
