@@ -29,19 +29,59 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        // qtyStepper code...
         qtyStepper.wraps = true
         qtyStepper.autorepeat = true
         qtyStepper.minimumValue = 1
         qtyStepper.maximumValue = 6
         
+        
+        // pickerView code...
         let pickerView = UIPickerView()
         
         pickerView.delegate = self
         
         pickerTextField.inputView = pickerView
+        
+        // create a "done" button on the UI picker...
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
+        
+        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        
+        toolBar.barStyle = UIBarStyle.blackTranslucent
+        
+        toolBar.tintColor = UIColor.white
+        
+        toolBar.backgroundColor = UIColor.black
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ItemViewController.donePressed))
+        
+//        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 1.5, height: self.view.frame.size.height))
+        
+        label.font = UIFont(name: "American Typewriter", size: 17)
+        
+        label.backgroundColor = UIColor.clear
+        
+        label.textColor = UIColor.white
+        
+        label.text = "select store location"
+        
+        label.textAlignment = NSTextAlignment.left
+        
+        let textBtn = UIBarButtonItem(customView: label)
+        
+        toolBar.setItems([textBtn,doneButton], animated: true)
+//        toolBar.setItems([flexSpace,textBtn,flexSpace,doneButton], animated: true)
+        
+        pickerTextField.inputAccessoryView = toolBar
 
+        
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+        
         
         // Set up views if editing an existing Item.
         if let item = item {
@@ -52,6 +92,7 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
             qtyStepper.value = Double(item.quantity)
         }
         
+        
         // Enable the Save button only if the text field has a valid Item name and item location has been selected.
         updateSaveButtonState()
     }
@@ -59,6 +100,14 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func donePressed(_ sender: UIBarButtonItem) {
+        pickerTextField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

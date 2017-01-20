@@ -37,7 +37,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item description - text will wrap" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxO-gh-GMa">
-                                            <rect key="frame" x="88" y="8" width="224" height="63"/>
+                                            <rect key="frame" x="88" y="16" width="224" height="47"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -50,7 +50,6 @@
                                         <constraint firstItem="XxO-gh-GMa" firstAttribute="leading" secondItem="3ZK-Wl-d1B" secondAttribute="trailing" constant="8" symbolic="YES" id="Fa1-PY-B5h"/>
                                         <constraint firstItem="XxO-gh-GMa" firstAttribute="centerY" secondItem="3ZK-Wl-d1B" secondAttribute="centerY" id="Nhf-mg-Rjx"/>
                                         <constraint firstItem="3ZK-Wl-d1B" firstAttribute="top" secondItem="QeK-RI-BPf" secondAttribute="top" id="Vwy-AV-zWT"/>
-                                        <constraint firstItem="XxO-gh-GMa" firstAttribute="top" secondItem="QeK-RI-BPf" secondAttribute="topMargin" id="cgr-i5-9TA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
