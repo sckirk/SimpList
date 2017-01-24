@@ -131,14 +131,6 @@ class ItemTableViewController: UITableViewController {
     
     
     //MARK: Actions
-    // first if statement that worked--with the edit location bug...
-    //    @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
-    //        if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
-    //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-    //                // Update an existing item.
-    //            sections[selectedIndexPath.section].items[selectedIndexPath.row] = item
-    //            tableView.reloadRows(at: [selectedIndexPath], with: .none)
-    //        }
     @IBAction func unwindToItemList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
             
