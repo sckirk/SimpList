@@ -99,6 +99,9 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    //MARK: UI picker functions...
     func donePressed(_ sender: UIBarButtonItem) {
         pickerTextField.resignFirstResponder()
     }
@@ -134,7 +137,7 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
-        saveButton.isEnabled = false
+//        saveButton.isEnabled = false   ...DO I NEED THIS?
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
