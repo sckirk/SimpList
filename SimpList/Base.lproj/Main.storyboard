@@ -114,7 +114,7 @@
                                             <constraint firstAttribute="height" constant="24" id="3gb-4F-NkU"/>
                                         </constraints>
                                         <color key="textColor" red="0.1176470588" green="0.20392156859999999" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity selector..." lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOg-c7-8xF">
@@ -134,6 +134,7 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="B4w-2f-2Nt">
                                                 <rect key="frame" x="226" y="0.0" width="94" height="29"/>
+                                                <color key="tintColor" red="0.1176470588" green="0.20392156859999999" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="qtyStepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mCY-D3-bwA"/>
                                                 </connections>
@@ -152,8 +153,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="RyB-5O-dgl"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.1176470588" green="0.20392156859999999" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>

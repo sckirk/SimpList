@@ -16,7 +16,7 @@ class Item: NSObject, NSCoding {
     var quantity: Int
     var location: String
     
-    
+
     
     //MARK: Types
     struct PropertyKey {

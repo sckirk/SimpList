@@ -14,7 +14,7 @@ class ItemTableViewController: UITableViewController {
     
     var sections = [Section]()
     
-    func hexStringToUIColor (hex:String) -> UIColor {
+  func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
@@ -35,8 +35,8 @@ class ItemTableViewController: UITableViewController {
             alpha: CGFloat(1.0)
         )
     }
+  
     
-    // var sections: [Section] = SectionsData().getSectionsFromData()
     
     override func viewDidLoad() {
         super.viewDidLoad()

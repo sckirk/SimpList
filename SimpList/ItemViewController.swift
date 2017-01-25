@@ -11,6 +11,30 @@ import os.log
 
 class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
+    
+    
     //MARK: Properties
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var qtyLabel: UILabel!
@@ -51,9 +75,9 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         
         toolBar.barStyle = UIBarStyle.blackTranslucent
         
-        toolBar.tintColor = UIColor.white
+        toolBar.tintColor = hexStringToUIColor(hex: "F5EEC7") // cream
         
-        toolBar.backgroundColor = UIColor.black
+        toolBar.backgroundColor = hexStringToUIColor(hex: "1E3446") // blue
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ItemViewController.donePressed))
         
@@ -63,9 +87,9 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         
         label.backgroundColor = UIColor.clear
         
-        label.textColor = UIColor.white
+        label.textColor = hexStringToUIColor(hex: "F84D59") // red
         
-        label.text = "select store location"
+        label.text = "select store location:"
         
         label.textAlignment = NSTextAlignment.left
         
