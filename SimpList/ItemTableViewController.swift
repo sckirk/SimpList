@@ -42,15 +42,14 @@ class ItemTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        self.tableView.backgroundColor = hexStringToUIColor(hex: "F84D59")
-//        self.tableView.backgroundColor = UIColor.clear
-//        self.tableView.superview?.backgroundColor = hexStringToUIColor(hex: "F84D59")
+        self.tableView.backgroundColor = hexStringToUIColor(hex: "F5EEC7") // cream
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = hexStringToUIColor(hex: "1E3446") // blue
-        header.textLabel?.backgroundColor = hexStringToUIColor(hex: "F84D59") // red
+        header.textLabel?.backgroundColor = hexStringToUIColor(hex: "F5EEC7") // cream
+//        header.textLabel?.backgroundColor = hexStringToUIColor(hex: "F84D59") // red
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
