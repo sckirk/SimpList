@@ -16,14 +16,6 @@ class Item: NSObject, NSCoding {
     var quantity: Int
     var location: String
     
-    
-    
-    //MARK: Archiving Paths
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("sections") // this sections part needs to be updated for this to work...
-    
-    
-    
     //MARK: Types
     struct PropertyKey {
         static let name = "name"

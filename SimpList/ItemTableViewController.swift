@@ -12,7 +12,7 @@ import os.log
 
 class ItemTableViewController: UITableViewController {
     
-    var sections: [Section] = SectionsData().getSectionsFromData()
+    var sections = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,18 +20,25 @@ class ItemTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-    // This is where my current project structure really doesn't work with the Apple Tutorial... would probably need to change all of this data persistence stuff to get it to work with Swift custom structures!
-//        // Load any saved items, otherwise load sample data.
-//        if let savedItems = loadItems() {
-//            items += savedItems
-//            if items.count == 0 { // this means that all of the meals were deleted by user...
-//                // Reload the sample data.
-//                loadSampleItems() // this has to be changed to work with the sections--don't have a loadSampleItems function at all.
-//            }
-//        } else {
-//            // Load the sample data.
-//            loadSampleItems()
-//        }
+
+        // Load any saved items, otherwise load sample data.
+        if let savedSections = loadSections() {
+            sections += savedSections
+            
+            // This code checks to see if all of the sections have zero items. If that's the case, default data will be reloaded...
+            var sectionsAllEmpty = true
+            for sect in sections {
+                if sect.items.count != 0 {
+                    sectionsAllEmpty = false
+                }
+            }
+            if sectionsAllEmpty == true {
+                sections = SectionsData().getSectionsFromData()
+            }
+        } else {
+            // Load the sample data.
+            sections = SectionsData().getSectionsFromData()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,7 +111,7 @@ class ItemTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             sections[indexPath.section].items.remove(at: indexPath.row)
-            saveItems()
+            saveSections()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -191,26 +198,30 @@ class ItemTableViewController: UITableViewController {
             }
             
             // Save the items.
-            saveItems()
+            saveSections()
         }
     }
     
     
     
     //MARK: Private Methods
-    private func saveItems() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(sections, toFile: Item.ArchiveURL.path)
+    private func saveSections() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(sections, toFile: Section.ArchiveURL.path)
         if isSuccessfulSave {
-            os_log("Items successfully saved.", log: OSLog.default, type: .debug)
+            os_log("Sections successfully saved.", log: OSLog.default, type: .debug)
         } else {
-            os_log("Failed to save items...", log: OSLog.default, type: .error)
+            os_log("Failed to save sections...", log: OSLog.default, type: .error)
         }
     }
     
-    private func loadItems() -> [Item]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Item.ArchiveURL.path) as? [Item]
+    private func loadSections() -> [Section]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Section.ArchiveURL.path) as? [Section]
     }
 }
+
+
+
+
 
  
  /*
