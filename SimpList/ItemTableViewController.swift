@@ -86,14 +86,6 @@ class ItemTableViewController: UITableViewController {
         return sections[section].heading
     }
     
-    // SUZ-- IS THIS CURRENTLY DOING ANYTHING????? <<<<<<<<<<<<<<
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView {
-        let header :UITableViewHeaderFooterView = UITableViewHeaderFooterView()
-        
-        header.contentView.tintColor = UIColor(red: 30.0/255.0, green: 52.0/255.0, blue: 70.0/255.0, alpha: 1)
-        return header
-    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and will be dequeued using a cell identifier.
