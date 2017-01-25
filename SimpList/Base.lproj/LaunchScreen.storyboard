@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,30 +24,27 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E6c-ke-BpN">
                                 <rect key="frame" x="0.0" y="28" width="320" height="92"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppTitleBar" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-xB-TPr">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppTitleBar" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-tb-9FT">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kaleHeart" translatesAutoresizingMaskIntoConstraints="NO" id="NQH-mv-gmR">
-                                <rect key="frame" x="0.0" y="183" width="320" height="253"/>
+                                <rect key="frame" x="0.0" y="183" width="320" height="284"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="OHK-7j-ZEw"/>
-                                    <constraint firstAttribute="height" constant="253" id="UyR-HG-Qmg"/>
-                                    <constraint firstAttribute="width" secondItem="NQH-mv-gmR" secondAttribute="height" multiplier="320:253" id="dyh-b9-T1a"/>
+                                    <constraint firstAttribute="height" constant="284" id="E4C-3v-ubB"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="E6c-ke-BpN" secondAttribute="bottom" constant="448" id="401-DJ-FgS"/>
-                            <constraint firstItem="E6c-ke-BpN" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="BEL-cr-qQP"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="NQH-mv-gmR" secondAttribute="bottom" constant="132" id="N1g-o9-KeX"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="NQH-mv-gmR" secondAttribute="bottom" constant="132" id="NdY-Ni-joJ"/>
-                            <constraint firstAttribute="trailing" secondItem="E6c-ke-BpN" secondAttribute="trailing" id="Trp-Hu-2Uc"/>
-                            <constraint firstItem="E6c-ke-BpN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UTx-O1-9QA"/>
-                            <constraint firstItem="NQH-mv-gmR" firstAttribute="top" secondItem="E6c-ke-BpN" secondAttribute="bottom" constant="63" id="Yqm-aE-654"/>
-                            <constraint firstItem="NQH-mv-gmR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="f7M-AU-Mku"/>
+                            <constraint firstItem="E6c-ke-BpN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="5rE-pJ-kPt"/>
+                            <constraint firstItem="NQH-mv-gmR" firstAttribute="top" secondItem="E6c-ke-BpN" secondAttribute="bottom" constant="63" id="CRN-KZ-lhS"/>
+                            <constraint firstItem="E6c-ke-BpN" firstAttribute="trailing" secondItem="NQH-mv-gmR" secondAttribute="trailing" id="MbF-R5-xKl"/>
+                            <constraint firstAttribute="trailing" secondItem="E6c-ke-BpN" secondAttribute="trailing" id="fLA-ee-jYH"/>
+                            <constraint firstItem="E6c-ke-BpN" firstAttribute="leading" secondItem="NQH-mv-gmR" secondAttribute="leading" id="nKY-Bb-Q8y"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="NQH-mv-gmR" secondAttribute="bottom" constant="101" id="qa7-hu-2Fv"/>
+                            <constraint firstItem="E6c-ke-BpN" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="wmw-YN-X4j"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -58,7 +54,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppTitleBar" width="394" height="106"/>
+        <image name="AppTitleBar" width="225" height="58"/>
         <image name="kaleHeart" width="1250" height="1250"/>
     </resources>
 </document>
