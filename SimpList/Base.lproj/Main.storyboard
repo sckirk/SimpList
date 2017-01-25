@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -89,18 +90,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8g9-iP-Etd">
-                                <rect key="frame" x="0.0" y="64" width="320" height="288"/>
+                                <rect key="frame" x="0.0" y="52" width="320" height="288"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppTitleBar" translatesAutoresizingMaskIntoConstraints="NO" id="Y9G-Aa-Yeo">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="92" id="HzN-r8-0cU"/>
-                                        </constraints>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="sweet &amp; simple item name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="r49-AE-EZ0">
                                         <rect key="frame" x="0.0" y="100" width="320" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="o8g-a6-tKb"/>
+                                            <constraint firstAttribute="height" constant="24" id="bZr-tI-Fat"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="16"/>
@@ -108,9 +106,6 @@
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quantity selector..." lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOg-c7-8xF">
                                         <rect key="frame" x="0.0" y="132" width="320" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="8yN-Ou-J5R"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -120,10 +115,6 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xe-N6-vLJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="226" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="mXt-Ez-rlY"/>
-                                                    <constraint firstAttribute="width" constant="226" id="wOF-vO-ETe"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="60"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -138,9 +129,6 @@
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location selector..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vE-zJ-JtV">
                                         <rect key="frame" x="0.0" y="232" width="320" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="12Q-hf-7Bi"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -148,20 +136,24 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Za-bE-8CJ">
                                         <rect key="frame" x="0.0" y="264" width="320" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="QOe-KP-1nt"/>
+                                            <constraint firstAttribute="height" constant="24" id="50K-CX-XBS"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="aOg-c7-8xF" firstAttribute="centerY" secondItem="8g9-iP-Etd" secondAttribute="centerY" id="t6Q-3b-P2S"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8g9-iP-Etd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QUY-Ea-2Gg"/>
-                            <constraint firstItem="8g9-iP-Etd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XVG-10-ypM"/>
-                            <constraint firstAttribute="trailing" secondItem="8g9-iP-Etd" secondAttribute="trailing" id="oRX-bJ-UKI"/>
+                            <constraint firstAttribute="trailing" secondItem="8g9-iP-Etd" secondAttribute="trailing" id="Wvg-Sl-17c"/>
+                            <constraint firstItem="8g9-iP-Etd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="52" id="ZFH-l1-g3u"/>
+                            <constraint firstItem="8g9-iP-Etd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZwI-Mb-qWl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8g9-iP-Etd" secondAttribute="bottom" constant="228" id="uUW-1Y-Ynw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="new item" id="duD-Bd-9TQ">
@@ -227,7 +219,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppTitleBar" width="394" height="106"/>
+        <image name="AppTitleBar" width="225" height="58"/>
         <image name="kaleHeart" width="1250" height="1250"/>
     </resources>
     <inferredMetricsTieBreakers>
