@@ -124,6 +124,7 @@ class ItemViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerTextField.text = pickOption[row]
+        updateSaveButtonState()
     }
     
     
